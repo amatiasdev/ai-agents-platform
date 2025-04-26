@@ -1,6 +1,5 @@
 import datetime
 import chromadb
-from chromadb.config import Settings
 import openai
 from config.settings import OPENAI_API_KEY, MODEL_NAME
 
@@ -8,12 +7,7 @@ from config.settings import OPENAI_API_KEY, MODEL_NAME
 client = openai.OpenAI(api_key=OPENAI_API_KEY)
 
 # Inicializar cliente de Chroma
-chroma_client = chromadb.Client(
-    Settings(
-        chroma_db_impl="duckdb+parquet",
-        persist_directory="./memory/chroma_store"
-    )
-)
+chroma_client = chromadb.Client()
 
 collection_name = "project_memory"
 collection = chroma_client.get_or_create_collection(collection_name)
@@ -31,7 +25,6 @@ def save_memory(project_id: str, description: str, tags: list = []):
         documents=[full_description],
         ids=[project_id]
     )
-    chroma_client.persist()
     print(f"🧠 Memoria guardada para el proyecto '{project_id}' con tags: {tags}")
 
 def search_memory(query: str, n_results: int = 3):
@@ -89,5 +82,4 @@ Fecha de creación:
         documents=[full_description],
         ids=[project_id]
     )
-    chroma_client.persist()
     print(f"🧠 Memoria guardada para el proyecto '{project_id}' con tags: {tags} en {timestamp}")
