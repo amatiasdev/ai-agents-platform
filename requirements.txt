@@ -1,0 +1,8 @@
+openai
+pyautogen
+langchain
+faiss-cpu
+chromadb
+llama-index
+python-dotenv
+tiktoken
