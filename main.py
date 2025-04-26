@@ -1,6 +1,15 @@
 from agents.pm_agent import pm_agent
 from agents.backend_agent import backend_agent
 from agents.tools.tool_manager import tool_definitions, execute_tool
+from agents.tools.file_system_tools import (
+    create_folder,
+    create_file,
+    move_file,
+    copy_file,
+    delete_file_or_folder,
+    compress_folder,
+    get_desktop_path
+)
 
 import openai
 import json
@@ -11,13 +20,24 @@ import datetime
 
 client = openai.OpenAI(api_key=OPENAI_API_KEY)
 
+# --- Configuramos UserProxyAgent ---
 user_proxy = UserProxyAgent(
     name="Aldo",
     code_execution_config={
         "work_dir": "projects/project-a",
         "use_docker": False
     },
-    max_consecutive_auto_reply=2
+    max_consecutive_auto_reply=2,
+    functions=[
+        create_folder,
+        create_file,
+        move_file,
+        copy_file,
+        delete_file_or_folder,
+        compress_folder,
+        get_desktop_path,
+    ],
+    system_message="Eres un agente de soporte técnico para Windows. Usa las funciones disponibles para gestionar archivos, carpetas y operaciones básicas de soporte técnico."
 )
 
 pm_agent.max_consecutive_auto_reply = 2
@@ -86,7 +106,7 @@ y mueve el README.md que está en 'projects/project-a/' a 'projects/project-a/ba
         description=description,
         tags=tags
     )
-    
+
 
 if __name__ == "__main__":
     main()
