@@ -4,7 +4,7 @@ import chromadb
 
 def import_memory(input_file="memory_backup.json"):
     """
-    Importa proyectos almacenados en un archivo JSON a la memoria persistente de Chroma.
+    Importa proyectos desde un archivo JSON a la memoria persistente de Chroma, evitando duplicados.
     """
     input_path = os.path.join(".", "memory", input_file)
 
@@ -23,22 +23,36 @@ def import_memory(input_file="memory_backup.json"):
     collection_name = "project_memory"
     collection = chroma_client.get_or_create_collection(collection_name)
 
+    # Obtener todos los IDs ya existentes
+    existing = collection.get()
+    existing_ids = set(existing.get('ids', []))
+
     print("🚀 Importando proyectos a la memoria...\n")
+
+    imported = 0
+    skipped = 0
 
     for idx, item in enumerate(memory_data):
         project_id = item.get("project_id")
         content = item.get("content")
 
-        if project_id and content:
+        if not project_id or not content:
+            print(f"⚠️ Proyecto {idx+1} inválido, omitiendo.")
+            skipped += 1
+            continue
+
+        if project_id in existing_ids:
+            print(f"⚠️ Proyecto ya existente: {project_id} - Omitido.")
+            skipped += 1
+        else:
             collection.add(
                 documents=[content],
                 ids=[project_id]
             )
             print(f"✅ Proyecto {idx+1}/{len(memory_data)} importado: {project_id}")
-        else:
-            print(f"⚠️ Proyecto {idx+1} inválido, omitiendo.")
+            imported += 1
 
-    print(f"\n🎉 ¡Importación completada! Total: {len(memory_data)} proyectos.")
+    print(f"\n🎉 Importación completada: {imported} proyectos importados, {skipped} proyectos omitidos.")
 
 if __name__ == "__main__":
     import_memory()

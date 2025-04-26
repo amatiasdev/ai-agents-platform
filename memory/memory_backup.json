@@ -1,0 +1,46 @@
+[
+    {
+        "project_id": "sample-project-20250426061156-4823",
+        "content": "\nDescripción:\nDesarrollo de API REST para sistema de facturación electrónica.\n\nTags:\nAPI REST, facturación electrónica, desarrollo, sistema, integración\n\nFecha de creación:\n2025-04-26 06:11:56\n"
+    },
+    {
+        "project_id": "sample-project-20250426061202-8156",
+        "content": "\nDescripción:\nAutomatización de reportes financieros usando Python y Pandas.\n\nTags:\nautomatización, reportes financieros, Python, Pandas, análisis de datos\n\nFecha de creación:\n2025-04-26 06:12:02\n"
+    },
+    {
+        "project_id": "sample-project-20250426061206-2706",
+        "content": "\nDescripción:\nImplementación de plataforma de agentes IA para gestión de proyectos.\n\nTags:\nplataforma IA, agentes inteligentes, gestión de proyectos, implementación, tecnología\n\nFecha de creación:\n2025-04-26 06:12:06\n"
+    },
+    {
+        "project_id": "sample-project-20250426061209-5872",
+        "content": "\nDescripción:\nOptimización de consultas en base de datos MySQL para plataforma web.\n\nTags:\nOptimización, Consultas, Base de datos, MySQL, Plataforma web\n\nFecha de creación:\n2025-04-26 06:12:09\n"
+    },
+    {
+        "project_id": "sample-project-20250426061213-3022",
+        "content": "\nDescripción:\nConstrucción de sistema de notificaciones push para aplicaciones móviles.\n\nTags:\nnotificaciones push, aplicaciones móviles, sistema de notificaciones, desarrollo de software, tecnología móvil\n\nFecha de creación:\n2025-04-26 06:12:13\n"
+    },
+    {
+        "project_id": "sample-project-20250426061217-5514",
+        "content": "\nDescripción:\nDespliegue de microservicios con Kubernetes y Docker.\n\nTags:\nKubernetes, Docker, microservicios, despliegue, contenedores\n\nFecha de creación:\n2025-04-26 06:12:17\n"
+    },
+    {
+        "project_id": "sample-project-20250426061221-5229",
+        "content": "\nDescripción:\nIntegración de chatbot inteligente en plataforma de soporte técnico.\n\nTags:\nchatbot inteligente, soporte técnico, integración, plataforma, atención al cliente\n\nFecha de creación:\n2025-04-26 06:12:21\n"
+    },
+    {
+        "project_id": "sample-project-20250426061224-4702",
+        "content": "\nDescripción:\nCreación de dashboards de analítica web con Power BI y Google Analytics.\n\nTags:\ndashboards, analítica web, Power BI, Google Analytics, visualización de datos\n\nFecha de creación:\n2025-04-26 06:12:24\n"
+    },
+    {
+        "project_id": "sample-project-20250426061232-6836",
+        "content": "\nDescripción:\nSistema de detección de anomalías en redes de sensores IoT.\n\nTags:\ndetección de anomalías, redes de sensores, IoT, seguridad informática, monitoreo de sistemas\n\nFecha de creación:\n2025-04-26 06:12:32\n"
+    },
+    {
+        "project_id": "sample-project-20250426061239-5740",
+        "content": "\nDescripción:\nAutomatización de backups de servidores en la nube AWS.\n\nTags:\nautomatización, backups, servidores, nube, AWS\n\nFecha de creación:\n2025-04-26 06:12:39\n"
+    },
+    {
+        "project_id": "ai-agents-platform-20250426061619",
+        "content": "\nDescripción:\nPrimera versión de plataforma de agentes IA operativos: PM Agent, Backend Agent, creación de carpetas y archivos, memoria persistente en ChromaDB.\n\nTags:\ninteligencia artificial, agentes operativos, ChromaDB, gestión de archivos, memoria persistente\n\nFecha de creación:\n2025-04-26 06:16:19\n"
+    }
+]
