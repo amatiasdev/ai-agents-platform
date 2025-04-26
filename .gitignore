@@ -172,3 +172,6 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Ignorar la base de datos de Chroma persistente
+memory/chroma_store/

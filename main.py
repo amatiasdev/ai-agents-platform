@@ -7,6 +7,7 @@ import json
 from config.settings import OPENAI_API_KEY, MODEL_NAME
 from memory.memory_manager import save_memory, search_memory, suggest_tags
 from autogen import UserProxyAgent
+import datetime
 
 client = openai.OpenAI(api_key=OPENAI_API_KEY)
 
@@ -81,7 +82,7 @@ y mueve el README.md que está en 'projects/project-a/' a 'projects/project-a/ba
 
     # Finalmente guarda el nuevo proyecto en memoria
     save_memory(
-        project_id="ai-agents-platform",
+        project_id = f"ai-agents-platform-{datetime.datetime.now().strftime('%Y%m%d%H%M%S')}",
         description=description,
         tags=tags
     )

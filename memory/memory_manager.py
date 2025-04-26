@@ -7,7 +7,7 @@ from config.settings import OPENAI_API_KEY, MODEL_NAME
 client = openai.OpenAI(api_key=OPENAI_API_KEY)
 
 # Inicializar cliente de Chroma
-chroma_client = chromadb.Client()
+chroma_client = chromadb.PersistentClient(path="./memory/chroma_store")
 
 collection_name = "project_memory"
 collection = chroma_client.get_or_create_collection(collection_name)
