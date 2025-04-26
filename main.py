@@ -5,7 +5,7 @@ from agents.tools.tool_manager import tool_definitions, execute_tool
 import openai
 import json
 from config.settings import OPENAI_API_KEY, MODEL_NAME
-from memory.memory_manager import save_memory, search_memory
+from memory.memory_manager import save_memory, search_memory, suggest_tags
 from autogen import UserProxyAgent
 
 client = openai.OpenAI(api_key=OPENAI_API_KEY)
