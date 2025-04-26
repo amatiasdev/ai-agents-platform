@@ -73,11 +73,17 @@ y mueve el README.md que está en 'projects/project-a/' a 'projects/project-a/ba
     else:
         print("No se requirió llamar función.")
 
-    
+    description = "Primera versión de plataforma de agentes IA operativos: PM Agent, Backend Agent, creación de carpetas y archivos, memoria persistente en ChromaDB."
+
+    # Sugerir tags automáticamente
+    tags = suggest_tags(description)
+    print(f"🔖 Tags sugeridos: {tags}")
+
     # Finalmente guarda el nuevo proyecto en memoria
     save_memory(
         project_id="ai-agents-platform",
-        description="Primera versión de plataforma de agentes IA operativos: PM Agent, Backend Agent, creación de carpetas y archivos, memoria persistente en ChromaDB."
+        description=description,
+        tags=tags
     )
     
 
