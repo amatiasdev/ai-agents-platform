@@ -1,8 +1,10 @@
+import datetime
 import chromadb
-import openai
 from chromadb.config import Settings
+import openai
 from config.settings import OPENAI_API_KEY, MODEL_NAME
 
+# Crear cliente OpenAI
 client = openai.OpenAI(api_key=OPENAI_API_KEY)
 
 # Inicializar cliente de Chroma
@@ -65,3 +67,27 @@ Devuelve únicamente la lista de palabras separadas por comas, sin numerarlas ni
     tags_text = response.choices[0].message.content.strip()
     tags = [tag.strip() for tag in tags_text.split(",") if tag.strip()]
     return tags
+
+def save_memory(project_id: str, description: str, tags: list = []):
+    """
+    Guarda un recuerdo de proyecto con tags opcionales y fecha/hora.
+    """
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    full_description = f"""
+Descripción:
+{description}
+
+Tags:
+{", ".join(tags) if tags else "sin tags"}
+
+Fecha de creación:
+{timestamp}
+"""
+
+    collection.add(
+        documents=[full_description],
+        ids=[project_id]
+    )
+    chroma_client.persist()
+    print(f"🧠 Memoria guardada para el proyecto '{project_id}' con tags: {tags} en {timestamp}")
